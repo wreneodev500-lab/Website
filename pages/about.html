@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Diproxy Studio</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .team-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .team-card:hover {
+      border-color: rgba(0,212,255,0.4);
+      transform: translateY(-4px);
+    }
+
+    .avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Orbitron', monospace;
+      font-size: 1.3rem;
+      font-weight: 900;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: rgba(0,212,255,0.05);
+      letter-spacing: 1px;
+    }
+
+    .team-card h3 {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 2px;
+      margin-bottom: 0.4rem;
+    }
+
+    .team-role {
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .team-card p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .mission-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 2rem;
+    }
+
+    .mission-block p {
+      color: var(--text-dim);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .values-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .values-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      color: var(--text-dim);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .values-list .val-icon {
+      color: var(--accent);
+      font-family: 'Orbitron', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      min-width: 28px;
+      padding-top: 2px;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 3rem 0;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 6px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(0,212,255,0.5);
+    }
+
+    .timeline-year {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 3px;
+      margin-bottom: 0.4rem;
+    }
+
+    .timeline-item h3 {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.95rem;
+      color: var(--white);
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-item p {
+      color: var(--text-dim);
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .mission-block { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scanline"></div>
+
+  <nav>
+    <a href="../index.html" class="logo">DI<span class="logo-outline">PRO</span><span class="logo-purple">XY</span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <span class="section-label">Our Story</span>
+      <h1 class="section-title">About Diproxy</h1>
+      <p class="section-desc" style="margin: 0 auto;">A one‑person studio building sci‑fi worlds with impossible ambition.</p>
+    </div>
+
+    <!-- MISSION -->
+    <section>
+      <div class="container">
+        <div class="mission-block">
+          <div>
+            <span class="section-label">Mission</span>
+            <h2 class="section-title" style="font-size: 2rem;">Space is not<br>the final frontier —<br>imagination is.</h2>
+          </div>
+          <div>
+            <p>
+              Diproxy began in 2021 as a personal experiment: could one developer create sci‑fi games with the same sense of scale, atmosphere, and mystery as the classics? What started as a hobby quickly became a full studio identity.
+            </p>
+            <p>
+              Based in Palm Bay, Florida, Diproxy is a solo operation — design, code, art, music, and writing all crafted by one developer with a stubborn love for world‑building. Every system, every UI element, every voxel is placed with intention.
+            </p>
+            <ul class="values-list">
+              <li><span class="val-icon">[01]</span> Player agency above all else</li>
+              <li><span class="val-icon">[02]</span> Atmosphere as a first-class feature</li>
+              <li><span class="val-icon">[03]</span> Small teams can build big worlds</li>
+              <li><span class="val-icon">[04]</span> Ship it when it feels right</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section>
+      <div class="container">
+        <span class="section-label">History</span>
+        <h2 class="section-title">The Journey</h2>
+
+        <div class="timeline">
+          <div class="timeline-item fade-in">
+            <p class="timeline-year">2021</p>
+            <h3>Diproxy Founded</h3>
+            <p>The studio begins as a solo project. First prototypes built in a tiny home office in Palm Bay.</p>
+          </div>
+          <div class="timeline-item fade-in">
+            <p class="timeline-year">2022</p>
+            <h3>First Public Release</h3>
+            <p>Early experiments evolve into full projects. The first players discover Diproxy’s signature sci‑fi style.</p>
+          </div>
+          <div class="timeline-item fade-in">
+            <p class="timeline-year">2023</p>
+            <h3>World‑Building Expands</h3>
+            <p>Development shifts toward larger, more systemic games — voxel engines, survival mechanics, and atmospheric storytelling.</p>
+          </div>
+          <div class="timeline-item fade-in">
+            <p class="timeline-year">2024</p>
+            <h3>Terrasasters</h3>
+            <p>The studio’s biggest milestone. A fully‑voxel survival world built from scratch by one developer.</p>
+          </div>
+          <div class="timeline-item fade-in">
+            <p class="timeline-year">2025</p>
+            <h3>New Projects Begin</h3>
+            <p>Multiple prototypes evolve into full titles — including Bombling Sweeper and Structural Integrity INC.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section>
+      <div class="container">
+        <span class="section-label">The Developer</span>
+        <h2 class="section-title">Meet the Developer</h2>
+        <p class="section-desc">Just one developer — building worlds one voxel, one line of code, one late night at a time.</p>
+
+        <div class="team-grid">
+          <div class="team-card fade-in">
+            <div class="avatar">WW</div>
+            <h3>Warren Williams</h3>
+            <p class="team-role">Founder & Solo Developer</p>
+            <p>Design, code, art, music, narrative — every Diproxy project is built by one pair of hands with a love for sci‑fi and systems‑driven gameplay.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <hr class="divider" />
+  <footer>
+    <span class="footer-logo">DI<span class="logo-outline">PRO</span><span class="logo-purple">XY</span></span>
+    <ul class="footer-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p>© 2025 Diproxy Game Studios. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>

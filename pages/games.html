@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Games — Diproxy Studio</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .game-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+      backdrop-filter: blur(8px);
+    }
+
+    .game-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(0,212,255,0.4);
+    }
+
+    .game-thumb {
+      aspect-ratio: 16/9;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .game-thumb svg { width: 100%; height: 100%; display: block; }
+
+    .game-status {
+      position: absolute;
+      top: 0.75rem; right: 0.75rem;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.3rem 0.75rem;
+      border-radius: 2px;
+      font-weight: 700;
+    }
+	
+	
+	.status-released,
+	.status-soon {
+	  background: rgba(0,0,0,0.65);
+	  color: #fff;
+	  border: 1px solid rgba(255,255,255,0.4);
+	  padding: 3px 8px;
+	  border-radius: 6px;
+	  font-weight: 600;
+	  backdrop-filter: blur(2px);
+	}
+
+
+
+    .game-body { padding: 1.75rem; }
+
+    .game-body h3 {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    .game-meta {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .game-body p {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    /* COUNTDOWN */
+    .countdown-wrap {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+
+    .countdown-title {
+      font-family: 'Orbitron', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    #countdown {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .cd-unit {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .cd-num {
+      font-family: 'Orbitron', monospace;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--accent);
+      text-shadow: 0 0 20px rgba(0,212,255,0.5);
+      line-height: 1;
+      min-width: 70px;
+      text-align: center;
+      background: rgba(0,212,255,0.05);
+      border: 1px solid rgba(0,212,255,0.2);
+      padding: 0.5rem;
+      border-radius: 2px;
+      display: block;
+    }
+
+    .cd-label {
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .cd-sep {
+      font-family: 'Orbitron', monospace;
+      font-size: 2rem;
+      color: var(--accent2);
+      opacity: 0.5;
+      margin-top: -8px;
+    }
+
+    .platforms {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .platform-tag {
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid rgba(0,212,255,0.2);
+      color: var(--text-dim);
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="scanline"></div>
+
+  <nav>
+    <a href="../index.html" class="logo">DI<span class="logo-outline">PRO</span><span class="logo-purple">XY</span></a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <span class="section-label">Our Portfolio</span>
+      <h1 class="section-title">The Games</h1>
+      <p class="section-desc" style="margin: 0 auto;">Three titles. Each one a different world to get lost in.</p>
+    </div>
+
+    <section>
+      <div class="container">
+
+        <!-- COUNTDOWN -->
+        <div class="countdown-wrap fade-in">
+          <span class="countdown-title">⚡ Next Launch: Bombling Sweeper — Countdown</span>
+          <div id="countdown">Loading...</div>
+        </div>
+
+        <div class="games-grid">
+
+          <!-- ══════════════════════════════════
+               GAME 1 — TERRASTERS
+          ══════════════════════════════════ -->
+          <div class="game-card fade-in">
+            <div class="game-thumb">
+			
+			<img src="../images/terrasasters.png" style="width:100%;height:100%;object-fit:cover;" >
+			
+              <span class="game-status status-soon">Coming Soon</span>
+            </div>
+            <div class="game-body">
+              <h3>TERRASTERS</h3>
+              <p class="game-meta">Survival / Craft &nbsp;·&nbsp; 2025</p>
+              <p>Survive earthquakes, tornadoes, floods, and volcanic eruptions in a fully voxel-crafted open world. Build smart or get buried.</p>
+              <div class="platforms">
+                <span class="platform-tag">PC</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ══════════════════════════════════
+               GAME 2 — BOMBLING SWEEPER
+          ══════════════════════════════════ -->
+		<div class="game-card fade-in">
+		  <div class="game-thumb" style="height:180px;overflow:hidden;">
+		  
+			<img src="../images/bombling_sweeper.png" style="width:100%;height:100%;object-fit:cover;" >
+			
+			<span class="game-status status-released">Coming Soon</span>
+		  </div>
+		  <div class="game-body">
+			<h3>BOMBLING SWEEPER</h3>
+			<p class="game-meta">Puzzle / 3D Anime &nbsp;·&nbsp; 2025</p>
+			
+			<p>A stylized 3D anime take on minesweeper. Guide your reluctant ghost-girl miner through bomb-riddled underground grids — one nervous step at a time.</p>
+			
+			<div class="platforms">
+			  <span class="platform-tag">PC</span>
+			  <span class="platform-tag">Mobile</span>
+			</div>
+		  </div>
+		</div>
+
+          <!-- ══════════════════════════════════
+               GAME 3 — STRUCTURAL INTEGRITY INC
+          ══════════════════════════════════ -->
+          <div class="game-card fade-in">
+            <div class="game-thumb">
+			
+			<img src="../images/Structural_integrity_inc.png" style="width:100%;height:100%;object-fit:cover;" >
+			
+              <span class="game-status status-soon">Coming Soon</span>
+            </div>
+            <div class="game-body">
+              <h3>STRUCTURAL INTEGRITY INC</h3>
+              <p class="game-meta">Strategy / Voxel &nbsp;·&nbsp; TBA</p>
+              <p>Engineer, construct, and stress-test buildings against physics disasters. Every beam, bolt, and foundation choice matters — or your whole block comes down.</p>
+              <div class="platforms">
+                <span class="platform-tag">PC</span>
+                <span class="platform-tag">TBA</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /games-grid -->
+      </div>
+    </section>
+  </main>
+
+  <hr class="divider" />
+  <footer>
+    <span class="footer-logo">DI<span class="logo-outline">PRO</span><span class="logo-purple">XY</span></span>
+    <ul class="footer-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="games.html">Games</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p>© 2025 Diproxy Game Studios. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script>
+    startCountdown('countdown', 'diproxy_si_deadline', 120);
+  </script>
+</body>
+</html>

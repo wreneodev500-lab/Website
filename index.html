@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diproxy — Sci-Fi Game Studio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 80%);
+      pointer-events: none;
+    }
+
+    .hero-planet {
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,212,255,0.15);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      animation: spin 40s linear infinite;
+    }
+    .hero-planet::before {
+      content: '';
+      position: absolute;
+      inset: -60px;
+      border-radius: 50%;
+      border: 1px solid rgba(123,79,255,0.08);
+      animation: spin 60s linear infinite reverse;
+    }
+    .hero-planet::after {
+      content: '';
+      position: absolute;
+      inset: -120px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,212,255,0.05);
+    }
+    @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+    .featured-game {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding: 4rem 0;
+    }
+
+    .featured-img {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, #0a1830 0%, #0d2040 50%, #0a1530 100%);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .featured-img svg { width: 100%; height: 100%; }
+
+    .featured-tag {
+      position: absolute;
+      top: 1rem; left: 1rem;
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: var(--black);
+      padding: 0.3rem 0.8rem;
+      font-weight: 700;
+    }
+
+    .featured-content h2 {
+      font-family: 'Orbitron', monospace;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .featured-content p {
+      color: var(--text-dim);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .genre-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .genre-tag {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid rgba(123,79,255,0.5);
+      color: #a88aff;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      .featured-game { grid-template-columns: 1fr; gap: 2rem; }
+    }
+	
+	 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap');
+	 .logo-wrap {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 3rem 2rem;
+		background: #050810;
+		border-radius: 12px;
+	  }
+	  .logo-main {
+		font-family: 'Orbitron', monospace;
+		font-size: 3.5rem;
+		font-weight: 900;
+		letter-spacing: 10px;
+		text-transform: uppercase;
+		position: relative;
+		display: inline-block;
+
+	  }
+	  .logo-main .di { color: #fff; }
+	  .logo-main .pro {
+		color: transparent;
+		-webkit-text-stroke: 2px #00d4ff;
+		position: relative;
+	  }
+	  .logo-main .xy { color: #7b4fff; }
+
+	  .logo-main::after {
+		content: 'DIPROXY';
+		position: absolute;
+		left: 0; top: 6px;
+		letter-spacing: 10px;
+		color: transparent;
+		-webkit-text-stroke: 1px rgba(0,212,255,0.15);
+		pointer-events: none;
+	  }
+
+	  .logo-sub {
+		font-family: 'Orbitron', monospace;
+		font-size: 0.55rem;
+		letter-spacing: 8px;
+		color: #6a85aa;
+		text-align: center;
+		text-transform: uppercase;
+		margin-top: 0.5rem;
+		display: block;
+	  }
+
+	  .logo-bar {
+		width: 100%;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, #00d4ff, #7b4fff, transparent);
+		margin-top: 0.6rem;
+	  }
+	  
+	  body 
+	  {
+		background-color: #000;
+		color: #fff;
+	  
+	  }
+	  
+  </style>
+</head>
+<body class = "body">
+  <div class="scanline"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo-wrap">
+  <div style="text-align:center">
+  
+    <div class="logo-main">
+	
+      <span class="di">DI</span><span class="pro">PRO</span><span class="xy">XY</span>
+    
+    <div class="logo-bar"></div>
+    <span class="logo-sub">Game Studios &nbsp;·&nbsp; Est. 2025</span>
+	
+	
+	</div>
+	
+  </div>
+  
+  
+</div>
+	
+    <ul id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pages/games.html">Games</a></li>
+      <li><a href="pages/about.html">About</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-planet"></div>
+	  
+      <h1>FORGE <span class="highlight">WORLDS</span><br>BEYOND ZERO</h1>
+      <p class="hero-sub">
+        Diproxy is an indie game studio crafting immersive space exploration and sci-fi experiences that push the limits of interactive storytelling.
+      </p>
+      <div class="hero-btns">
+        <a href="pages/games.html" class="btn btn-primary">Explore Games</a>
+        <a href="pages/about.html" class="btn btn-outline">Our Story</a>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section style="padding: 2rem;">
+      <div class="container">
+        <div class="stats-row">
+          <div class="stat-item">
+            <span class="stat-num" data-target="0" data-suffix="">0</span>
+            <span class="stat-label">Games Released</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="0" data-suffix="">0</span>
+            <span class="stat-label">Players Worldwide</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="1" data-suffix="">0</span>
+            <span class="stat-label">Years Active</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num" data-target="1" data-suffix="">0</span>
+            <span class="stat-label">Team Members</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED GAME -->
+    <section>
+      <div class="container">
+        <span class="section-label">Featured Title</span>
+        <div class="featured-game fade-in">
+          <div class="featured-img">
+            <span class="featured-tag">In-Progress</span>
+			
+			<img src="images/bombling_sweeper.png" style="width:90%;height:100%;object-fit:cover;" >
+			
+			  <div class="featured-content">
+				<div class="genre-tags">
+				  <span class="genre-tag">Open World</span>
+				  <span class="genre-tag">Voxel</span>
+				  <span class="genre-tag">Survival</span>
+				</div>
+				<!-- Featured Game --!>
+				<h2> BOMBLING SWEEPER </h2>
+				<p class="game-meta">Puzzle / 3D Anime &nbsp;·&nbsp; 2025</p>
+				
+				<p>A stylized 3D anime take on minesweeper. Guide your reluctant ghost-girl miner through bomb-riddled underground grids — one nervous step at a time.</p>
+				
+				
+				<p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1.5rem;">
+				  PC &nbsp;·&nbsp; Console &nbsp;·&nbsp; 2024
+				</p>
+				<a href="pages/games.html" class="btn btn-primary">View All Games</a>
+			  </div>
+			</div>
+      </div>
+    </section>
+	
+	
+	
+
+		<!-- WHAT WE DO -->
+	<section class="what-we-do">
+	  <div class="container">
+		<span class="section-label">What We Do</span>
+		<h2 class="section-title">Built from the <br>ground up</h2>
+		<p class="section-desc">
+		  Every Diproxy title is handcrafted by a small, passionate team obsessed with world-building, atmosphere, and player freedom.
+		</p>
+
+		<table class="bevel-table">
+		  <tr>
+			<td class="icon">🚀</td>
+			<td>
+			  <h3>Space Exploration</h3>
+			  <p>Procedurally generated star systems with hand-crafted narrative anchors. Every playthrough discovers something new.</p>
+			</td>
+		  </tr>
+
+		  <tr>
+			<td class="icon">⚙️</td>
+			<td>
+			  <h3>Deep Systems</h3>
+			  <p>Complex ship customization, crew management, and resource economies that reward strategic thinking without punishing creativity.</p>
+			</td>
+		  </tr>
+
+		  <tr>
+			<td class="icon">🌌</td>
+			<td>
+			  <h3>Atmospheric Worlds</h3>
+			  <p>Signature visual style blending hard sci-fi aesthetics with striking alien environments that feel both alien and believable.</p>
+			</td>
+		  </tr>
+
+		  <tr>
+			<td class="icon">🎮</td>
+			<td>
+			  <h3>Player Agency</h3>
+			  <p>Stories that adapt to your choices. Faction systems, branching dialogue, and emergent gameplay that never repeats the same tale twice.</p>
+			</td>
+		  </tr>
+		</table>
+	  </div>
+	</section>
+
+  </main>
+
+  <hr class="divider" />
+  <footer>
+    <span class="footer-logo">DI<span class="logo-outline">PRO</span><span class="logo-purple">XY</span></span>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="pages/games.html">Games</a></li>
+      <li><a href="pages/about.html">About</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
+    <p>© 2025 Diproxy Game Studios. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
