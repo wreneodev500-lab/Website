@@ -21,12 +21,16 @@
   box-sizing: border-box;
 }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Rajdhani', sans-serif;
   background: var(--black);
   color: var(--text);
   min-height: 100vh;
-  overflow-x: hidden;
 }
 
 /* STARFIELD BACKGROUND */
@@ -38,6 +42,7 @@ body::before {
     radial-gradient(ellipse 80% 50% at 20% 0%, rgba(0,100,200,0.08) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 80% 100%, rgba(123,79,255,0.06) 0%, transparent 60%),
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Ccircle cx='50' cy='80' r='1' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='150' cy='20' r='0.5' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='300' cy='150' r='1.5' fill='%23ffffff' opacity='0.3'/%3E%3Ccircle cx='80' cy='300' r='0.8' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='350' cy='50' r='1' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='200' cy='350' r='0.6' fill='%23ffffff' opacity='0.3'/%3E%3Ccircle cx='370' cy='280' r='1.2' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='30' cy='200' r='0.7' fill='%23ffffff' opacity='0.4'/%3E%3Ccircle cx='250' cy='100' r='0.5' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='120' cy='370' r='1' fill='%23ffffff' opacity='0.3'/%3E%3C/svg%3E") repeat;
+  background-size: cover;
   pointer-events: none;
   z-index: 0;
 }
@@ -50,7 +55,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 3rem;
+  padding: 0 1.2rem;
   height: 70px;
   background: rgba(5,8,16,0.85);
   backdrop-filter: blur(12px);
@@ -126,11 +131,9 @@ main {
   align-items: center;
   text-align: center;
   padding: 4rem 2rem;
-  position: relative;
 }
 
 .hero-eyebrow {
-  font-family: 'Rajdhani', sans-serif;
   font-size: 0.85rem;
   letter-spacing: 6px;
   text-transform: uppercase;
@@ -228,7 +231,6 @@ section {
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 0.75rem;
-  display: block;
 }
 
 .section-title {
@@ -255,7 +257,7 @@ section {
 /* GRID CARDS */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
 }
 
@@ -292,7 +294,6 @@ section {
 .card-icon {
   font-size: 2.5rem;
   margin-bottom: 1rem;
-  display: block;
 }
 
 .card h3 {
@@ -340,7 +341,6 @@ footer {
   color: var(--accent);
   letter-spacing: 3px;
   margin-bottom: 1rem;
-  display: block;
 }
 
 footer p {
@@ -407,7 +407,6 @@ footer p {
   font-size: 2.5rem;
   font-weight: 900;
   color: var(--accent);
-  display: block;
   text-shadow: 0 0 20px rgba(0,212,255,0.4);
 }
 
@@ -417,7 +416,6 @@ footer p {
   text-transform: uppercase;
   color: var(--text-dim);
   margin-top: 0.5rem;
-  display: block;
 }
 
 /* ANIMATIONS */
@@ -527,7 +525,7 @@ footer p {
 /* RESPONSIVE: TABLET & DOWN */
 @media (max-width: 768px) {
   nav {
-    padding: 0 1.5rem;
+    padding: 0 1.2rem;
   }
 
   .nav-toggle {
@@ -591,38 +589,4 @@ footer p {
 }
 
 /* RESPONSIVE: SMALL PHONES */
-@media (max-width: 480px) {
-  body {
-    font-size: 0.95rem;
-  }
-
-  section {
-    padding: 3rem 1rem;
-  }
-
-  .page-header {
-    padding: 3rem 1rem 2rem;
-  }
-
-  .section-title {
-    font-size: 1.6rem;
-  }
-
-  .section-desc {
-    font-size: 1rem;
-  }
-
-  .stats-row {
-    grid-template-columns: 1fr;
-  }
-
-  .bevel-table td {
-    display: block;
-    width: 100%;
-    padding: 1rem 0;
-  }
-
-  .bevel-table .icon {
-    margin-bottom: 0.5rem;
-  }
-}
+@media (max-width: 480px)
